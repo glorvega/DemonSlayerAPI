@@ -30,6 +30,9 @@ const getHuman = async (req, res, next) => {
 const postNewHuman = async (req, res, next) => {
     try{
         const newHuman = new Human(req.body); //REQ BODY recoge los elementos del cuerpo del mensaje
+        if(req.file){
+            newHuman.image = req.file.path;         //comprobamos si req.file está seteado y si es así obtenemos el archivo y lo asignamos a la imagen
+        }
         // newHuman.height = req.body.height;
         // newHuman.description = req.body.description;
         // newHuman.name = req.body.name;

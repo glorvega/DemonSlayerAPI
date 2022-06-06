@@ -30,6 +30,9 @@ const getTitan = async (req, res, next) => {
 const postNewTitan = async (req, res, next) => {
     try{
         const newTitan = new Titan(req.body); //REQ BODY recoge los elementos del cuerpo del mensaje
+        if(req.file){
+            newTitan.image = req.file.path;
+        }
         // newTitan.height = req.body.height;
         // newTitan.description = req.body.description;
         // newTitan.name = req.body.name;

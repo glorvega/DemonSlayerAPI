@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const cloudinary = require('cloudinary').v2;
 
 dotenv.config();
 
@@ -9,7 +10,14 @@ const TitanRoutes = require('./src/api/titan/titan.routes');
 
 const {connectDb} = require('./src/utils/database/database');
 
+
 const PORT = process.env.PORT || 8080;
+
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET
+})
 
 const app = express();
 connectDb();
