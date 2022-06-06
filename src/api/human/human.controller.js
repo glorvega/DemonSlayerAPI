@@ -51,6 +51,9 @@ const putHuman = async (req, res, next) => {
         const {id} = req.params;
         const putHuman = new Human(req.body);
         putHuman._id = id;
+        if(req.file){
+            putHuman.image = req.file.path;
+        }
         const humanDB = await Human.findByIdAndUpdate(id, putHuman);
         if(!humanDB){
             const error = new Error("No humans found by this id");

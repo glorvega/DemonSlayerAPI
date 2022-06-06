@@ -6,7 +6,7 @@ const HumanRoutes = express.Router();
 HumanRoutes.get('/', getAllHumans);
 HumanRoutes.get('/:id', getHuman);
 HumanRoutes.post('/', upload.single('image'), postNewHuman);
-HumanRoutes.put('/:id', putHuman);
+HumanRoutes.put('/:id', upload.single('image'), putHuman);
 HumanRoutes.delete('/:id', deleteHuman);
 
 module.exports = HumanRoutes;
