@@ -1,3 +1,4 @@
+const { deleteFile } = require('../../utils/middlewares/deleteFile.middleware');
 const Human = require('./human.model');
 
 // obtenemos todos los humans
@@ -55,6 +56,9 @@ const putHuman = async (req, res, next) => {
             const error = new Error("No humans found by this id");
             error.status = 404;
             return next(error);
+        }
+        if(humanDB.image){
+            deleteFile(humanDB.image);
         }
         return res.status(200).json(humanDB);
     } catch (error) {

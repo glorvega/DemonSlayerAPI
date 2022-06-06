@@ -56,6 +56,9 @@ const putTitan = async (req, res, next) => {
             error.status = 404;
             return next(error);
         }
+        if(titanDB.image){
+            deleteFile(titanDB.image);
+        }
         return res.status(200).json(titanDB);
     } catch (error) {
         return next(error);
