@@ -50,6 +50,9 @@ const putTitan = async (req, res, next) => {
         const {id} = req.params;
         const putTitan = new Titan(req.body);
         putTitan._id = id;
+        if(req.file){
+            putTitan.image = req.file.path;
+        }
         const titanDB = await Titan.findByIdAndUpdate(id, putTitan);
         if(!titanDB){
             const error = new Error("No titans found by this id");

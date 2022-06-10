@@ -30,7 +30,7 @@ app.use((req, res, next) => {
 })
 
 app.use(cors({   //Definimos las rutas para las que damos permiso a acceder a nuestra API, para que no la bloquee el CORS
-    origin: ['https://localhost:3000', 'https://localhost:4200'],    //Implementamos el cors para poder conectarnos desde los puertos estandar de ANGULAR Y REACT
+    origin: ['http://localhost:3000', 'http://localhost:4200'],    //Implementamos el cors para poder conectarnos desde los puertos estandar de ANGULAR Y REACT
     credentials: true,
 }))
 
