@@ -45,6 +45,7 @@ app.use(express.urlencoded({limit: '5mb', extended: true})) ////Se asegura que l
 // /:id --> get by id --->  /characters/:id
 
 
+
 app.use('/titan', TitanRoutes);
 
 app.use('/human', HumanRoutes);
